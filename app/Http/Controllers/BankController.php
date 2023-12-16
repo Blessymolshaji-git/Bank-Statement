@@ -9,7 +9,7 @@ class BankController extends Controller
 {
     public function form($id){
         $bankuser = User::find($id);
-          //dd( $bankuser);
+    
         return view('Bank.viewuser',compact('bankuser'));
     } 
     public function depositpage(){
@@ -18,14 +18,13 @@ class BankController extends Controller
     } 
     
     public function createdeposit(Request $request){
-        //dd("hi");
+   
         $request->validate([
             'amount' => 'required',
             'type' => 'required',
            
         ]);
-        //$data = $request->all();
-       //dd ($data );
+    
        Bank::create($request->all());
         return redirect()->route('depositpage')->with('success','Amount Deposit Successfully');
     }
@@ -34,16 +33,38 @@ class BankController extends Controller
         return view('Bank.withdraw');
     } 
     public function createwithdraw(Request $request){
-        //dd("hi");
+   
         $request->validate([
             'amount' => 'required',
             'type' => 'required',
            
         ]);
-        //$data = $request->all();
-       //dd ($data );
+       
        Bank::create($request->all());
         return redirect()->route('withdrawpage')->with('success','Amount Withdraw Successfully');
+    }
+    public function transferpage(){
+       
+        return view('Bank.transfer');
+    } 
+    public function createtransfer(Request $request){
+
+        $request->validate([
+            'amount' => 'required',
+            'type' => 'required',
+           
+        ]);
+
+       Bank::create($request->all());
+        return redirect()->route('transferpage')->with('success','Amount Transfer Money Successfully');
+    }
+    public function liststatment( ){
+    
+        $bankstatement = Bank::latest()->paginate(2);
+        return view('bank.statement',compact('bankstatement'))
+            ->with('i', (request()->input('page', 1) - 1) * 2);
+    
+        
     }
         
     } 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Custom Auth in Laravel</title>
+    <title>Bank Statement</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body style="background-image:url({{asset('image/1.jpeg')}});background-repeat: no-repeat;background-size: cover;">
+<body style="background-image:url({{asset('image/11.avif')}});background-repeat: no-repeat;background-size: cover;">
     <nav class="navbar navbar-light navbar-expand-lg mb-5" style=" font-weight:bold; background-color:#ffffff; border:1px solid black;opacity:0.8;">
        
            
@@ -27,10 +27,10 @@
                         <a class="nav-link" href="{{ route('withdrawpage') }}">Withdraw</a>
                    </li>
                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signout') }}">Transer</a>
+                        <a class="nav-link" href="{{ route('transferpage') }}">Transer</a>
                    </li>
                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signout') }}">Statement</a>
+                        <a class="nav-link" href="{{ route('statement.bank') }}">Statement</a>
                    </li>
                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Logout</a>

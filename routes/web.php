@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BankController;
 
 
@@ -33,12 +32,10 @@ Route::any('/depositpage', [BankController::class, 'depositpage'])->name('deposi
 Route::any('/deposit', [BankController::class, 'createdeposit'])->name('deposit.bank');
 Route::any('/withdraw', [BankController::class, 'createwithdraw'])->name('withdraw.bank');
 Route::any('/withdrawpage', [BankController::class, 'withdrawpage'])->name('withdrawpage');
-Route::get('/list', [StudentController::class, 'liststudent'])->name('list.student');
+Route::any('/transfer', [BankController::class, 'createtransfer'])->name('transfer.bank');
+Route::any('/transferpage', [BankController::class, 'transferpage'])->name('transferpage');
+Route::get('/list', [BankController::class, 'liststatment'])->name('statement.bank');
 Route::get('/show/{id}', [BankController::class, 'showbankuser'])->name('bank.student');
-Route::get('/edit/{id}', [StudentController::class, 'editstudent'])->name('edit.student');
-Route::any('/update', [StudentController::class, 'studentupdate'])->name('update.student');
-Route::delete('/delete/{student}', [StudentController::class, 'destroy'])->name('delect.student');
-//Route::resource('students',StudentController::class);
 
 
 
